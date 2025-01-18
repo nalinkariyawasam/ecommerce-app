@@ -1,4 +1,3 @@
-import 'package:ecommerceapp/widgets/catogory_slider.dart';
 import 'package:ecommerceapp/widgets/main_product_cart.dart';
 import 'package:flutter/material.dart';
 
@@ -108,11 +107,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
                           itemCount: allProduct.length,
-                          itemBuilder: (context, index) => MainProdouctCart(
-                            title: allProduct[index]['title'],
-                            price: allProduct[index]['price'].toString(),
-                            imageUrl: allProduct[index]['image'],
-                          ),
+                          itemBuilder: (context, index) {
+                            return MainProdouctCart(
+                              title: allProduct[index]['title'],
+                              price: allProduct[index]['price'].toString(),
+                              imageUrl: allProduct[index]['image'],
+                            );
+                          },
                         ),
                       );
                     }

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:ecommerceapp/models/product.dart';
 import 'package:http/http.dart' as http;
 
 class ApiServices {
@@ -12,12 +13,23 @@ class ApiServices {
     return catogoryList;
   }
 
-  static Future<List> getProducts() async {
+  static Future<List<Product>> getProducts() async {
     var url = Uri.https('fakestoreapi.com', 'products');
 
     var respones = await http.get(url);
     //print(respones.body);
-    List products = jsonDecode(respones.body);
+
+    var jsonProducts = await jsonDecode(respones.body) as List;
+    //print(jsonProducts);
+    List<Product> products = [];
+    // json type eke data eka convert karanawa Product type ekata
+
+    // for (var item in jsonProducts) {
+    //   Product productTypeData = Product.fromJson(item);
+    //   //print(productTypeData.title);
+    //   products.add(productTypeData);
+    // }
+    //print(products);
     return products;
   }
 

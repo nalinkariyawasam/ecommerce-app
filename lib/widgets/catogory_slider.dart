@@ -40,7 +40,7 @@ class _CatogorySliderState extends State<CatogorySlider> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         left: 10,
         top: 10,
         bottom: 10,
